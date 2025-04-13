@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3eqs5vq5nj4i"]
+
+[ext_resource type="Script" uid="uid://3w1gq3lx86q0" path="res://scenes/entities/common/movement.gd" id="1_635qg"]
+[ext_resource type="Script" uid="uid://bvsvpwa14tkld" path="res://scenes/entities/player/player_controls.gd" id="2_08t41"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ucweq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ucweq"]
+radius = 8.0
+
+[node name="player" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.396078, 1)
+self_modulate = Color(1, 0, 0.447059, 1)
+position = Vector2(-1.01328e-06, 1.01328e-06)
+scale = Vector2(16, 16)
+texture = SubResource("CanvasTexture_ucweq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ucweq")
+
+[node name="Movement" type="Node2D" parent="."]
+script = ExtResource("1_635qg")
+
+[node name="Controls" type="Node2D" parent="."]
+script = ExtResource("2_08t41")

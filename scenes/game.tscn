@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=4 uid="uid://duh64ho8w0aji"]
+
+[ext_resource type="PackedScene" uid="uid://d3eqs5vq5nj4i" path="res://scenes/entities/player/player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://1h36ni0c0v5j" path="res://hexes.png" id="1_yqjtg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
+texture = ExtResource("1_yqjtg")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+1:0/0/custom_data_0 = true
+1:0/0/custom_data_1 = true
+2:0/0 = 0
+2:0/0/custom_data_0 = true
+3:0/0 = 0
+3:0/0/custom_data_0 = true
+4:0/0 = 0
+5:0/0 = 0
+5:0/0/custom_data_0 = true
+6:0/0 = 0
+6:0/0/custom_data_0 = true
+7:0/0 = 0
+7:0/0/custom_data_0 = true
+
+[sub_resource type="TileSet" id="TileSet_uwrxv"]
+tile_shape = 3
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "passable"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "slippery"
+custom_data_layer_1/type = 1
+sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." groups=["main_grid"]]
+rotation = -0.00234903
+tile_map_data = PackedByteArray("AAACAAAAAAAEAAAAAAD+////AAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAD+/wAAAAAAAAAAAAD9////AAAAAAAAAAD+//7/AAAEAAAAAAD///7/AAAEAAAAAAAAAP7/AAAEAAAAAAD///3/AAAAAAAAAAD+//3/AAAAAAAAAAD/////AAAAAAAAAAABAAAAAAAAAAAAAAAAAP3/AAAAAAAAAAABAP7/AAAEAAAAAAABAP//AAAEAAAAAAD+//z/AAACAAAAAAD///z/AAACAAAAAAAAAPz/AAACAAAAAAABAPz/AAACAAAAAAABAP3/AAAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD8////AAACAAAAAAD9/wAAAAACAAAAAAD8//3/AAACAAAAAAD8//7/AAACAAAAAAD+/wEAAAAAAAAAAAD9/wEAAAACAAAAAAD+/wIAAAACAAAAAAD//wIAAAAAAAAAAAACAPz/AAACAAAAAAACAP3/AAACAAAAAAADAP7/AAACAAAAAAADAP//AAACAAAAAAAEAAAAAAACAAAAAAAEAAEAAAACAAAAAAACAP7/AAABAAAAAAACAP//AAABAAAAAAADAAAAAAABAAAAAAACAAEAAAAEAAAAAAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAD//wEAAAAAAAAAAAAEAAIAAAACAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAADAAEAAAAAAAAAAAD9//z/AAACAAAAAAADAAMAAAACAAAAAAACAAMAAAACAAAAAAABAAMAAAACAAAAAAAAAAMAAAACAAAAAAD//wMAAAACAAAAAAD+/wMAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_uwrxv")
+
+[node name="player" parent="." instance=ExtResource("1_uwrxv")]
+position = Vector2(16, 16)
